@@ -1,16 +1,16 @@
-<?xml version="1.0"?>
-<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
-    <table name="seller_table" resource="default" engine="innodb" comment="Seller Table">
-        <column xsi:type="int" name="seller_id" unsigned="false" nullable="false" identity="true" comment="seller_id"/>
-        <column xsi:type="varchar" name="seller_name"  nullable="false" comment="seller_name"/>
-        <column xsi:type="varchar" name="seller_email"  nullable="false"  comment="seller_email"/>
-        <column xsi:type="varchar" name="seller_city"  nullable="false"  comment="product_name"/>
-        <constraint xsi:type="primary" referenceId="PRIMARY">
-            <column name="seller_id"/>
+<?xml version = "1.0"?>
+<schema xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation = "urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name = "seller_table" resource = "default" engine = "innodb" comment = "Seller Table">
+        <column xsi:type = "int" name = "seller_id" unsigned = "false" nullable = "false" identity = "true" comment = "seller_id"/>
+        <column xsi:type = "varchar" name = "seller_name"  nullable = "false" comment = "seller_name"/>
+        <column xsi:type = "varchar" name = "seller_email"  nullable = "false"  comment = "seller_email"/>
+        <column xsi:type = "varchar" name = "seller_city"  nullable = "false"  comment = "product_name"/>
+        <constraint xsi:type = "primary" referenceId = "PRIMARY">
+            <column name = "seller_id"/>
         </constraint>
-        <constraint xsi:type="unique" referenceId="UNIQUE">
-            <column name="seller_email"/>
+        <constraint xsi:type = "unique" referenceId = "UNIQUE">
+            <column name = "seller_email"/>
         </constraint>
     </table>
 </schema>

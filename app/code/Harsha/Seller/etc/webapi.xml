@@ -33,4 +33,10 @@
             <resource ref="Harsha_Seller::seller"/>
         </resources>
     </route>
+    <route url="/V1/seller/:id" method="PUT">
+        <service class="Harsha\Seller\Api\SellerRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Harsha_Seller::seller"/>
+        </resources>
+    </route>
 </routes>
