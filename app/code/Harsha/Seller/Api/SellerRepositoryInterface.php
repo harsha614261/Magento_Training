@@ -1,6 +1,7 @@
 <?php
 namespace Harsha\Seller\Api;
 use Harsha\Seller\Api\Data\SellerInterface;
+use Harsha\Seller\Api\Data\SellerSearchResultsInterface;
 
 /**
  * CMS block CRUD interface.
@@ -28,19 +29,19 @@ interface SellerRepositoryInterface{
     public function delete(int $id): bool;
 
     /**
-     * @return mixed
+     * @return SellerSearchResultsInterface
      */
-    public function getAll(): mixed;
+    public function getAll(): \Magento\Framework\Api\SearchResultsInterface;
 
 
 //    /**
 //     * @param $id
-//     * @return \Harsha\Seller\Api\Data\SellerInterface
+//     * @return \Harsha\SellerBlock\Api\Data\SellerInterface
 //     */
 //    public function getById($id): Data\SellerInterface;
 //
 //    /**
-//     * @return \Harsha\Seller\Api\Data\SellerInterface
+//     * @return \Harsha\SellerBlock\Api\Data\SellerInterface
 //     */
 //    public function getAll(): Data\SellerInterface;
 

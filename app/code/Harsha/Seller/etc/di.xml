@@ -10,4 +10,6 @@
                 type="Harsha\Seller\Model\SellerRepository" />
     <preference for="Harsha\Seller\Api\Data\SellerInterface"
                 type="Harsha\Seller\Model\SellerBlock" />
+    <preference for="Harsha\Seller\Api\Data\SellerSearchResultsInterface"
+                type="Harsha\Seller\Model\SellerSearchResults" />
 </config>

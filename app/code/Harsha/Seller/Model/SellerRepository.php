@@ -12,15 +12,18 @@ class SellerRepository implements SellerRepositoryInterface
     protected $sellerBlockFactory;
     protected $Resource;
     protected $collectionFactory;
-
+    protected $sellerSearchResultsFactory;
     public function __construct(
         \Harsha\Seller\Model\SellerBlockFactory $sellerBlockFactory,
         \Harsha\Seller\Model\ResourceModel\SellerBlock $resource,
         \Harsha\Seller\Model\ResourceModel\SellerBlock\CollectionFactory $collectionFactory,
+        \Magento\Framework\Api\SearchResultsInterfaceFactory $sellerSearchResultsFactory,
     ) {
         $this->sellerBlockFactory=$sellerBlockFactory;
         $this->Resource=$resource;
         $this->collectionFactory=$collectionFactory;
+        $this->sellerSearchResultsFactory=$sellerSearchResultsFactory;
+
     }
 
     /**
@@ -67,10 +70,13 @@ class SellerRepository implements SellerRepositoryInterface
         return true;
     }
 
-    public function getAll(): mixed
+    public function getAll(): \Magento\Framework\Api\SearchResultsInterface
     {
         $collection = $this->collectionFactory->create();
-        return $collection->getData();
+        $searchResults=$this->sellerSearchResultsFactory->create();
+        $searchResults->setItems($collection->getItems());
+        $searchResults->setTotalCount($collection->getSize());
+        return $searchResults;
 
     }
 
