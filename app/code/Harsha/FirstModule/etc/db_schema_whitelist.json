@@ -1,0 +1,13 @@
+{
+    "first_module_sample_table": {
+        "column": {
+            "customer_id": true,
+            "customer_name": true,
+            "customer_age": true,
+            "contact_no": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

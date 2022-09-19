@@ -1,0 +1,14 @@
+{
+    "seller_table": {
+        "column": {
+            "seller_id": true,
+            "seller_name": true,
+            "seller_email": true,
+            "seller_city": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SELLER_TABLE_SELLER_EMAIL": true
+        }
+    }
+}

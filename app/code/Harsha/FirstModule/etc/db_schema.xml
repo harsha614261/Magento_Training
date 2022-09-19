@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="first_module_sample_table" resource="default" engine="innodb" comment="First Module Sample Table">
+        <column xsi:type="int" name="customer_id" unsigned="false" nullable="false" identity="true" comment="customer_id"/>
+        <column xsi:type="varchar" name="customer_name"  nullable="false" comment="customer_name"/>
+        <column xsi:type="int" name="customer_age" unsigned="false" nullable="false"  comment="customer_age"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="customer_id"/>
+        </constraint>
+    </table>
+</schema>
