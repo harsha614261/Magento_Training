@@ -27,5 +27,5 @@ interface SellerSearchResultsInterface extends SearchResultsInterface
      * @param \Harsha\Seller\Api\Data\SellerInterface[] $items
      * @return $this
      */
-    public function setItems(array $items): static;
+    public function setItems(array $items);
 }

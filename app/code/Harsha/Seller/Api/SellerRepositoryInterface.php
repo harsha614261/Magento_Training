@@ -29,9 +29,9 @@ interface SellerRepositoryInterface{
     public function delete(int $id): bool;
 
     /**
-     * @return \Magento\Framework\Api\SearchResultsInterface
+     * @return \Harsha\Seller\Api\Data\SellerSearchResultsInterface
      */
-    public function getAll(): \Magento\Framework\Api\SearchResultsInterface;
+    public function getAll(): \Harsha\Seller\Api\Data\SellerSearchResultsInterface;
 
 
 //    /**

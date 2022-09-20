@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Harsha\Seller\Model;
 
 use Harsha\Seller\Model\ResourceModel\SellerBlock as ResourceModel;
@@ -30,7 +30,7 @@ class SellerBlock extends AbstractModel implements \Harsha\Seller\Api\Data\Selle
 
     public function getSellerId():int|null
     {
-        return $this->getData("seller_id");
+        return (int)$this->getData("seller_id")??null;
     }
 
     public function setSellerName(string $name)

@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 namespace Harsha\Seller\Model;
 use Harsha\Seller\Api\Data;
 use Harsha\Seller\Api\SellerRepositoryInterface;
@@ -17,7 +17,7 @@ class SellerRepository implements SellerRepositoryInterface
         \Harsha\Seller\Model\SellerBlockFactory $sellerBlockFactory,
         \Harsha\Seller\Model\ResourceModel\SellerBlock $resource,
         \Harsha\Seller\Model\ResourceModel\SellerBlock\CollectionFactory $collectionFactory,
-        \Magento\Framework\Api\SearchResultsInterfaceFactory $sellerSearchResultsFactory,
+        \Harsha\Seller\Api\Data\SellerSearchResultsInterfaceFactory $sellerSearchResultsFactory,
     ) {
         $this->sellerBlockFactory = $sellerBlockFactory;
         $this->resource = $resource;
@@ -29,13 +29,13 @@ class SellerRepository implements SellerRepositoryInterface
     /**
      * @throws \Magento\Framework\Exception\AlreadyExistsException
      * @throws CouldNotSaveException
+     * @throws NoSuchEntityException
      */
     public function save(Data\SellerInterface $seller): Data\SellerInterface
     {
         try {
-            if (!empty($seller)) {
-                $this->resource->save($seller);
-            }
+            $this->resource->save($seller);
+
         }catch (\Exception $exception){
             throw new CouldNotSaveException(__($exception->getMessage()));
         }
@@ -70,11 +70,11 @@ class SellerRepository implements SellerRepositoryInterface
         return true;
     }
 
-    public function getAll(): \Magento\Framework\Api\SearchResultsInterface
+    public function getAll(): \Harsha\Seller\Api\Data\SellerSearchResultsInterface
     {
         $collection = $this->collectionFactory->create();
         $searchResults = $this->sellerSearchResultsFactory->create();
-        $searchResults->setItems($collection->getData());
+        $searchResults->setItems($collection->getItems());
         $searchResults->setTotalCount($collection->getSize());
         return $searchResults;
 
